@@ -3,6 +3,7 @@ package jp.shiita.websockettest
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.google.firebase.messaging.FirebaseMessaging
 import com.tinder.scarlet.Scarlet
 import com.tinder.scarlet.State
 import com.tinder.scarlet.lifecycle.android.AndroidLifecycle
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Timber.plant(Timber.DebugTree())
+        FirebaseMessaging.getInstance().subscribeToTopic("all")
         testWebSocket()
     }
 
